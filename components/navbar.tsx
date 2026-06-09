@@ -71,7 +71,7 @@ export default function Navbar() {
               </button>
             ))}
             <button
-              onClick={() => handleLink("#contacto")}
+              onClick={() => handleLink("#cotizador")}
               className="ml-3 bg-sky hover:bg-sky-hover text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors"
             >
               Cotizar
@@ -103,10 +103,10 @@ export default function Navbar() {
               </button>
             ))}
             <button
-              onClick={() => handleLink("#contacto")}
+              onClick={() => handleLink("#cotizador")}
               className="mt-3 bg-sky text-white py-3 rounded-md font-semibold text-sm"
             >
-              Solicitar Cotización
+              Cotizar
             </button>
           </nav>
         </div>
