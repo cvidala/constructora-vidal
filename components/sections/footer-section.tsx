@@ -1,4 +1,5 @@
-import { HardHat, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Phone, MapPin } from "lucide-react";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -28,9 +29,13 @@ export default function FooterSection() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-gold rounded p-1.5">
-                <HardHat className="h-5 w-5 text-white" />
-              </div>
+              <Image
+                src="/logo.jpg"
+                alt="Constructora Vidal"
+                width={36}
+                height={36}
+                className="rounded-md"
+              />
               <span className="text-white font-bold font-heading tracking-wide">
                 CONSTRUCTORA VIDAL
               </span>
@@ -41,11 +46,11 @@ export default function FooterSection() {
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-gold shrink-0" />
+                <Phone className="h-4 w-4 text-sky shrink-0" />
                 <span>+56 9 7826 2069</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-gold shrink-0" />
+                <MapPin className="h-4 w-4 text-sky shrink-0" />
                 <span>La Araucanía, Chile</span>
               </div>
             </div>
@@ -61,7 +66,7 @@ export default function FooterSection() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm hover:text-gold transition-colors"
+                    className="text-sm hover:text-sky transition-colors"
                   >
                     {l.label}
                   </a>
@@ -80,7 +85,7 @@ export default function FooterSection() {
                 <li key={s}>
                   <a
                     href="#servicios"
-                    className="text-sm hover:text-gold transition-colors"
+                    className="text-sm hover:text-sky transition-colors"
                   >
                     {s}
                   </a>
@@ -100,7 +105,7 @@ export default function FooterSection() {
             </p>
             <a
               href="#contacto"
-              className="inline-block bg-gold hover:bg-gold-hover text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+              className="inline-block bg-sky hover:bg-sky-hover text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
             >
               Cotizar ahora
             </a>

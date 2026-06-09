@@ -57,7 +57,7 @@ export default function Proyectos() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-gold font-semibold text-sm uppercase tracking-widest">
+          <span className="text-sky font-semibold text-sm uppercase tracking-widest">
             Nuestro trabajo
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-navy font-heading leading-tight">

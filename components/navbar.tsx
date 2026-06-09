@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, HardHat } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { label: "Inicio", href: "#inicio" },
@@ -41,12 +42,17 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleLink("#inicio")}
-            className="flex items-center gap-2 text-white font-heading font-700"
+            className="flex items-center gap-2"
           >
-            <div className="bg-gold rounded p-1.5">
-              <HardHat className="h-5 w-5 text-white" strokeWidth={2} />
-            </div>
-            <span className="text-sm sm:text-base font-bold tracking-wide leading-tight">
+            <Image
+              src="/logo.jpg"
+              alt="Constructora Vidal"
+              width={40}
+              height={40}
+              className="rounded-md"
+              priority
+            />
+            <span className="text-sm sm:text-base font-bold tracking-wide leading-tight text-white font-heading">
               CONSTRUCTORA<br className="hidden sm:block" />
               <span className="sm:block"> VIDAL</span>
             </span>
@@ -58,14 +64,14 @@ export default function Navbar() {
               <button
                 key={l.href}
                 onClick={() => handleLink(l.href)}
-                className="px-3 py-2 text-sm text-white/80 hover:text-white hover:text-gold transition-colors rounded-md font-medium"
+                className="px-3 py-2 text-sm text-white/80 hover:text-white hover:text-sky transition-colors rounded-md font-medium"
               >
                 {l.label}
               </button>
             ))}
             <button
               onClick={() => handleLink("#contacto")}
-              className="ml-3 bg-gold hover:bg-gold-hover text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors"
+              className="ml-3 bg-sky hover:bg-sky-hover text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors"
             >
               Cotizar
             </button>
@@ -97,7 +103,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={() => handleLink("#contacto")}
-              className="mt-3 bg-gold text-white py-3 rounded-md font-semibold text-sm"
+              className="mt-3 bg-sky text-white py-3 rounded-md font-semibold text-sm"
             >
               Solicitar Cotización
             </button>

@@ -46,7 +46,7 @@ export default function Servicios() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-gold font-semibold text-sm uppercase tracking-widest">
+          <span className="text-sky font-semibold text-sm uppercase tracking-widest">
             Lo que hacemos
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-navy font-heading leading-tight">
@@ -63,10 +63,10 @@ export default function Servicios() {
           {servicios.map((s) => (
             <div
               key={s.titulo}
-              className="group p-6 rounded-xl border border-gray-100 hover:border-gold/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white"
+              className="group p-6 rounded-xl border border-gray-100 hover:border-sky/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white"
             >
-              <div className="inline-flex p-3 rounded-xl bg-gold-light group-hover:bg-gold/20 transition-colors mb-5">
-                <s.icon className="h-6 w-6 text-gold" strokeWidth={1.75} />
+              <div className="inline-flex p-3 rounded-xl bg-sky-light group-hover:bg-sky/20 transition-colors mb-5">
+                <s.icon className="h-6 w-6 text-sky" strokeWidth={1.75} />
               </div>
               <h3 className="text-lg font-bold text-navy mb-2 font-heading">
                 {s.titulo}

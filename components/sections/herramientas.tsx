@@ -290,13 +290,13 @@ function ResultCard({
     <div
       className={`rounded-lg p-4 ${
         highlight
-          ? "bg-gold/10 border border-gold/25"
+          ? "bg-sky/10 border border-sky/25"
           : "bg-white border border-gray-100"
       }`}
     >
       <div
         className={`text-2xl font-extrabold font-heading ${
-          highlight ? "text-gold-hover" : "text-navy"
+          highlight ? "text-sky-hover" : "text-navy"
         }`}
       >
         {value}
@@ -318,7 +318,7 @@ export default function Herramientas() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-gold font-semibold text-sm uppercase tracking-widest">
+          <span className="text-sky font-semibold text-sm uppercase tracking-widest">
             Gratis y sin registro
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-navy font-heading leading-tight">

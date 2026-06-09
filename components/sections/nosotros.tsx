@@ -14,7 +14,7 @@ export default function Nosotros() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-gold font-semibold text-sm uppercase tracking-widest">
+          <span className="text-sky font-semibold text-sm uppercase tracking-widest">
             Quiénes somos
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white font-heading leading-tight">
@@ -31,8 +31,8 @@ export default function Nosotros() {
           {/* Misión */}
           <div className="bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/8 transition-colors">
             <div className="flex items-start gap-4">
-              <div className="shrink-0 bg-gold/20 rounded-lg p-3">
-                <Target className="h-6 w-6 text-gold" />
+              <div className="shrink-0 bg-sky/20 rounded-lg p-3">
+                <Target className="h-6 w-6 text-sky" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white font-heading mb-3">
@@ -51,8 +51,8 @@ export default function Nosotros() {
           {/* Visión */}
           <div className="bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/8 transition-colors">
             <div className="flex items-start gap-4">
-              <div className="shrink-0 bg-gold/20 rounded-lg p-3">
-                <Eye className="h-6 w-6 text-gold" />
+              <div className="shrink-0 bg-sky/20 rounded-lg p-3">
+                <Eye className="h-6 w-6 text-sky" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white font-heading mb-3">
@@ -70,14 +70,14 @@ export default function Nosotros() {
         </div>
 
         {/* Valores */}
-        <div className="bg-gold/10 border border-gold/20 rounded-xl p-8">
+        <div className="bg-sky/10 border border-sky/20 rounded-xl p-8">
           <h3 className="text-xl font-bold text-white font-heading mb-6 text-center">
             Nuestros Valores
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {valores.map((v) => (
               <div key={v} className="flex items-center gap-3">
-                <CheckCircle2 className="h-5 w-5 text-gold shrink-0" strokeWidth={2} />
+                <CheckCircle2 className="h-5 w-5 text-sky shrink-0" strokeWidth={2} />
                 <span className="text-white/80 text-sm">{v}</span>
               </div>
             ))}

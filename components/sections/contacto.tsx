@@ -8,7 +8,7 @@ export default function Contacto() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-gold font-semibold text-sm uppercase tracking-widest">
+          <span className="text-sky font-semibold text-sm uppercase tracking-widest">
             Hablemos
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-navy font-heading leading-tight">
@@ -33,10 +33,10 @@ export default function Contacto() {
                 label="Teléfonos"
                 value={
                   <>
-                    <a href="tel:+56978262069" className="block hover:text-gold transition-colors">
+                    <a href="tel:+56978262069" className="block hover:text-sky transition-colors">
                       +56 9 7826 2069
                     </a>
-                    <a href="tel:+56972690873" className="block hover:text-gold transition-colors">
+                    <a href="tel:+56972690873" className="block hover:text-sky transition-colors">
                       +56 9 7269 0873
                     </a>
                   </>
@@ -58,7 +58,7 @@ export default function Contacto() {
                 value={
                   <a
                     href="mailto:contacto@constructoravidal.cl"
-                    className="hover:text-gold transition-colors"
+                    className="hover:text-sky transition-colors"
                   >
                     contacto@constructoravidal.cl
                   </a>
@@ -126,7 +126,7 @@ export default function Contacto() {
             </div>
             <button
               type="submit"
-              className="w-full bg-gold hover:bg-gold-hover text-white font-bold py-3 rounded-lg transition-colors text-sm"
+              className="w-full bg-sky hover:bg-sky-hover text-white font-bold py-3 rounded-lg transition-colors text-sm"
             >
               Enviar solicitud
             </button>
@@ -151,8 +151,8 @@ function ContactItem({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="shrink-0 bg-gold/10 rounded-lg p-2.5">
-        <Icon className="h-5 w-5 text-gold" />
+      <div className="shrink-0 bg-sky/10 rounded-lg p-2.5">
+        <Icon className="h-5 w-5 text-sky" />
       </div>
       <div>
         <div className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">
