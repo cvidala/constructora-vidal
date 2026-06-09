@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Constructora Vidal Ltda. — La Araucanía, Chile",
-  icons: { icon: "/icon.png", shortcut: "/icon.png", apple: "/icon.png" },
+  icons: { icon: "/cv-favicon.png", shortcut: "/cv-favicon.png", apple: "/cv-favicon.png" },
   description:
     "Empresa constructora con más de 10 años de experiencia en La Araucanía. Construcción, remodelaciones, instalaciones eléctricas y proyectos de infraestructura.",
   keywords: [
