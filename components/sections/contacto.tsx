@@ -57,10 +57,10 @@ export default function Contacto() {
                 label="Correo"
                 value={
                   <a
-                    href="mailto:contacto@constructoravidal.cl"
+                    href="mailto:jsvconstrucciones@gmail.com"
                     className="hover:text-sky transition-colors"
                   >
-                    contacto@constructoravidal.cl
+                    jsvconstrucciones@gmail.com
                   </a>
                 }
               />
