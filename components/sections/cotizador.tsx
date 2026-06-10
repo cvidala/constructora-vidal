@@ -316,10 +316,21 @@ export default function Cotizador() {
                   </p>
                 </div>
 
-                <a href="#contacto"
+                <button
+                  onClick={() => {
+                    const resumen = items.map((item) =>
+                      `• ${item.label} — ${item.dimLabel} · ${
+                        item.calidad === "basico" ? "Básico" :
+                        item.calidad === "estandar" ? "Estándar" : "Premium"
+                      }: ${formatCLP(item.rango.min)} – ${formatCLP(item.rango.max)}\n  ${item.spec}`
+                    ).join("\n");
+                    const texto = `Cotización Express:\n${resumen}\n\nTotal estimado: ${formatCLP(totalMin)} – ${formatCLP(totalMax)}`;
+                    window.dispatchEvent(new CustomEvent("cv:cotizacion", { detail: { texto } }));
+                    document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="mt-4 flex items-center justify-center gap-2 w-full bg-white text-navy font-bold py-3 rounded-xl text-sm hover:bg-white/90 transition-colors">
                   Solicitar cotización formal
-                </a>
+                </button>
               </div>
             )}
           </div>

@@ -1,8 +1,22 @@
 "use client";
 
-import { Phone, MapPin, Clock, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Phone, MapPin, Clock, Mail, ClipboardList } from "lucide-react";
 
 export default function Contacto() {
+  const [mensaje, setMensaje] = useState("");
+  const [desdeCotizador, setDesdeCotizador] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const { texto } = (e as CustomEvent<{ texto: string }>).detail;
+      setMensaje(texto);
+      setDesdeCotizador(true);
+    };
+    window.addEventListener("cv:cotizacion", handler);
+    return () => window.removeEventListener("cv:cotizacion", handler);
+  }, []);
+
   return (
     <section id="contacto" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,10 +106,7 @@ export default function Contacto() {
               type="email"
             />
             <div className="space-y-1.5">
-              <label
-                htmlFor="tipo"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="tipo" className="block text-sm font-medium text-gray-700">
                 Tipo de obra
               </label>
               <select
@@ -110,20 +121,39 @@ export default function Contacto() {
                 <option>Otro</option>
               </select>
             </div>
+
+            {/* Descripción — pre-rellena con cotizador si viene de ahí */}
             <div className="space-y-1.5">
-              <label
-                htmlFor="mensaje"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Descripción del proyecto
-              </label>
+              <div className="flex items-center justify-between">
+                <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700">
+                  Descripción del proyecto
+                </label>
+                {desdeCotizador && (
+                  <span className="flex items-center gap-1 text-xs text-sky font-medium">
+                    <ClipboardList className="h-3.5 w-3.5" />
+                    Desde Cotizador Express
+                  </span>
+                )}
+              </div>
               <textarea
                 id="mensaje"
-                rows={4}
+                rows={desdeCotizador ? 8 : 4}
                 placeholder="Cuéntanos en qué consiste tu proyecto..."
-                className="w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs outline-none focus:ring-1 focus:ring-ring resize-none"
+                value={mensaje}
+                onChange={(e) => setMensaje(e.target.value)}
+                className={`w-full rounded-md border px-3 py-2 text-sm shadow-xs outline-none focus:ring-1 focus:ring-ring resize-none font-mono transition-colors ${
+                  desdeCotizador
+                    ? "border-sky/40 bg-sky/3 text-gray-700"
+                    : "border-input bg-transparent"
+                }`}
               />
+              {desdeCotizador && (
+                <p className="text-xs text-gray-400">
+                  Puedes editar o agregar más detalles antes de enviar.
+                </p>
+              )}
             </div>
+
             <button
               type="submit"
               className="w-full bg-sky hover:bg-sky-hover text-white font-bold py-3 rounded-lg transition-colors text-sm"
