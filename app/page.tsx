@@ -7,6 +7,7 @@ import Herramientas from "@/components/sections/herramientas";
 import Cotizador from "@/components/sections/cotizador";
 import Contacto from "@/components/sections/contacto";
 import FooterSection from "@/components/sections/footer-section";
+import WhatsAppButton from "@/components/whatsapp-button";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Contacto />
       </main>
       <FooterSection />
+      <WhatsAppButton />
     </>
   );
 }
