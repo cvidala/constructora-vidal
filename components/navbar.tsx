@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Lock } from "lucide-react";
 import Image from "next/image";
 
 const links = [
@@ -13,6 +13,8 @@ const links = [
   { label: "Cotizador", href: "#cotizador" },
   { label: "Contacto", href: "#contacto" },
 ];
+
+const JSV_URL = "https://js-vsytem.vercel.app";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -33,26 +35,14 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-navy/95 backdrop-blur-sm shadow-lg"
-          : "bg-navy"
+        scrolled ? "bg-navy/95 backdrop-blur-sm shadow-lg" : "bg-navy"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button
-            onClick={() => handleLink("#inicio")}
-            className="flex items-center gap-2"
-          >
-            <Image
-              src="/logo.jpg"
-              alt="Constructora Vidal"
-              width={40}
-              height={40}
-              className="rounded-md"
-              priority
-            />
+          <button onClick={() => handleLink("#inicio")} className="flex items-center gap-2">
+            <Image src="/logo.jpg" alt="Constructora Vidal" width={40} height={40} className="rounded-md" priority />
             <span className="text-sm sm:text-base font-bold tracking-wide leading-tight text-white font-heading">
               CONSTRUCTORA<br className="hidden sm:block" />
               <span className="sm:block"> VIDAL</span>
@@ -65,25 +55,37 @@ export default function Navbar() {
               <button
                 key={l.href}
                 onClick={() => handleLink(l.href)}
-                className="px-3 py-2 text-sm text-white/80 hover:text-white hover:text-sky transition-colors rounded-md font-medium"
+                className="px-3 py-2 text-sm text-white/80 hover:text-white transition-colors rounded-md font-medium"
               >
                 {l.label}
               </button>
             ))}
+
+            {/* Separador */}
+            <div className="w-px h-5 bg-white/15 mx-2" />
+
+            {/* Acceso plataforma */}
+            <a
+              href={JSV_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-2 text-sm text-white/50 hover:text-white/80 transition-colors rounded-md font-medium border border-white/10 hover:border-white/25"
+              title="Acceso plataforma interna"
+            >
+              <Lock className="h-3.5 w-3.5" />
+              Plataforma
+            </a>
+
             <button
               onClick={() => handleLink("#cotizador")}
-              className="ml-3 bg-sky hover:bg-sky-hover text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors"
+              className="ml-2 bg-sky hover:bg-sky-hover text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors"
             >
               Cotizar
             </button>
           </nav>
 
           {/* Mobile hamburger */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setOpen(!open)}
-            aria-label="Menú"
-          >
+          <button className="md:hidden text-white p-2" onClick={() => setOpen(!open)} aria-label="Menú">
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -102,12 +104,23 @@ export default function Navbar() {
                 {l.label}
               </button>
             ))}
-            <button
-              onClick={() => handleLink("#cotizador")}
-              className="mt-3 bg-sky text-white py-3 rounded-md font-semibold text-sm"
-            >
-              Cotizar
-            </button>
+            <div className="mt-3 flex flex-col gap-2">
+              <button
+                onClick={() => handleLink("#cotizador")}
+                className="bg-sky text-white py-3 rounded-md font-semibold text-sm"
+              >
+                Cotizar
+              </button>
+              <a
+                href={JSV_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-2.5 rounded-md text-sm text-white/50 border border-white/10 font-medium"
+              >
+                <Lock className="h-3.5 w-3.5" />
+                Acceso Plataforma
+              </a>
+            </div>
           </nav>
         </div>
       )}
