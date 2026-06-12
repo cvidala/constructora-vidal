@@ -10,7 +10,6 @@ const links = [
   { label: "Proyectos", href: "#proyectos" },
   { label: "Nosotros", href: "#nosotros" },
   { label: "Herramientas", href: "#herramientas" },
-  { label: "Cotizador", href: "#cotizador" },
   { label: "Contacto", href: "#contacto" },
 ];
 
