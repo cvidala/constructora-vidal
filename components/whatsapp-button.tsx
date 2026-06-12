@@ -1,18 +1,36 @@
 import Link from "next/link";
 
-const PHONE = "56978262069"; // sin + ni espacios
+// Número de respaldo si JSV no responde en build
+const FALLBACK_PHONE = "56978262069";
+const JSV_API = process.env.JSV_PUBLIC_API ?? "https://js-vsytem.vercel.app";
 
-export default function WhatsAppButton() {
+// Lee el número desde JSV en build time. Se "hornea" al desplegar y queda fijo
+// hasta el próximo "Cargar a la web" (que dispara un nuevo build).
+async function getPhone(): Promise<string> {
+  try {
+    const res = await fetch(`${JSV_API}/api/public/contacto`, {
+      next: { revalidate: false },
+    });
+    if (!res.ok) return FALLBACK_PHONE;
+    const data = await res.json();
+    const num = String(data.whatsappWeb ?? "").replace(/[^\d]/g, "");
+    return num || FALLBACK_PHONE;
+  } catch {
+    return FALLBACK_PHONE;
+  }
+}
+
+export default async function WhatsAppButton() {
+  const phone = await getPhone();
   return (
     <Link
-      href={`https://wa.me/${PHONE}?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.`}
+      href={`https://wa.me/${phone}?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 active:scale-95"
       style={{ backgroundColor: "#25D366" }}
     >
-      {/* WhatsApp SVG oficial */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
