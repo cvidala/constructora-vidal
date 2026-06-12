@@ -4,12 +4,12 @@ import Link from "next/link";
 const FALLBACK_PHONE = "56978262069";
 const JSV_API = process.env.JSV_PUBLIC_API ?? "https://js-vsytem.vercel.app";
 
-// Lee el número desde JSV en build time. Se "hornea" al desplegar y queda fijo
-// hasta el próximo "Cargar a la web" (que dispara un nuevo build).
+// Lee el número desde JSV directamente. Se cachea y refresca cada 5 minutos (ISR):
+// cambias el número en el Perfil de JSV → la web lo refleja sola, sin reconstruir nada.
 async function getPhone(): Promise<string> {
   try {
     const res = await fetch(`${JSV_API}/api/public/contacto`, {
-      next: { revalidate: false },
+      next: { revalidate: 300 },
     });
     if (!res.ok) return FALLBACK_PHONE;
     const data = await res.json();
